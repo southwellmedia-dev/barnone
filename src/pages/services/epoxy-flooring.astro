@@ -1,0 +1,404 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Navigation } from "../../components/Navigation";
+import { SubpageHero } from "../../components/layouts/SubpageHero";
+import { Footer } from "../../components/Footer";
+import { ActionButton } from "../../components/ui/ActionButton";
+import {
+  ArrowRight,
+  Phone,
+  ChevronRight,
+  X,
+  Check,
+  Info
+} from "lucide-react";
+import heroImg from "../../assets/photos/13.png?url";
+import galleryImg1 from "../../assets/photos/3.png?url";
+import galleryImg2 from "../../assets/photos/12.png?url";
+import galleryImg3 from "../../assets/photos/502890779_122200928468109155_1894578586407965000_n.jpg?url";
+import galleryImg4 from "../../assets/photos/502921810_122200928936109155_7124812981231038953_n.jpg?url";
+import galleryImg5 from "../../assets/photos/503270872_122200929038109155_1815650892895053466_n.jpg?url";
+import galleryImg6 from "../../assets/photos/14.png?url";
+---
+
+<Layout title="Epoxy Flooring | Bar None Coatings">
+  <Navigation client:load />
+  <main>
+    <SubpageHero
+      client:load
+      title="Epoxy Flooring"
+      subtitle="Industrial-strength protection meets showroom-quality finish. Built to withstand anything you throw at it."
+      breadcrumb={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/#services" },
+        { label: "Epoxy Flooring", href: "/services/epoxy-flooring" },
+      ]}
+      backgroundImage={heroImg}
+    />
+
+    <!-- The Problem/Solution Section -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Left Content -->
+          <div class="lg:col-span-5">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-1 bg-brand-red"></div>
+              <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">The Problem</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground leading-[0.9] mb-8">
+              Your Concrete <br/>
+              <span class="text-muted">is Failing.</span>
+            </h2>
+
+            <div class="space-y-4 mb-10">
+              {[
+                "Cracks spreading across the surface",
+                "Oil stains that won't come out",
+                "Dust that never stops",
+                "Cold, ugly, uninspiring"
+              ].map((problem) => (
+                <div class="flex items-center gap-4 font-tech text-muted">
+                  <X class="w-5 h-5 text-brand-red flex-shrink-0" />
+                  <span>{problem}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="h-px bg-border my-10"></div>
+
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-1 bg-brand-blue"></div>
+              <span class="font-tech text-brand-blue font-bold uppercase tracking-widest text-sm">The Solution</span>
+            </div>
+
+            <h3 class="text-3xl md:text-4xl font-heading italic uppercase text-foreground leading-[0.9] mb-8">
+              Industrial-Grade <br/>
+              <span class="text-brand-blue">Epoxy Systems</span>
+            </h3>
+
+            <p class="font-tech text-muted leading-relaxed mb-8">
+              We don't just coat your floor—we transform it. Our multi-layer epoxy and polyaspartic systems create a surface that's chemically bonded to your concrete, resistant to everything from hot tires to harsh chemicals, and looks incredible doing it.
+            </p>
+
+            <ActionButton href="/contact" client:load>
+              Get Free Assessment
+            </ActionButton>
+          </div>
+
+          <!-- Right: Image Stack (Homepage style) -->
+          <div class="lg:col-span-7 relative hidden lg:block">
+            <div class="relative h-[600px] w-full">
+              <!-- Background Graphic - solid blue shape like homepage -->
+              <div class="absolute top-10 right-0 w-[80%] h-[90%] bg-brand-blue transform skew-x-3 rounded-sm"></div>
+
+              <!-- Main Image -->
+              <div class="absolute top-0 right-12 w-[75%] h-[80%] bg-background p-2 shadow-2xl transform -skew-x-3">
+                <div class="w-full h-full overflow-hidden relative">
+                  <img
+                    src={galleryImg1}
+                    alt="Professional epoxy floor installation"
+                    class="w-full h-full object-cover transform skew-x-3 scale-110"
+                  />
+                  <div class="absolute top-0 right-0 bg-brand-red text-white px-4 py-2 transform skew-x-3 origin-top-right">
+                    <span class="font-heading italic uppercase text-sm">Residential</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Secondary Image - Floating Card -->
+              <div class="absolute bottom-12 left-0 w-[50%] h-[40%] bg-background p-2 shadow-2xl transform -skew-x-3 border border-border">
+                <div class="w-full h-full overflow-hidden relative">
+                  <img
+                    src={galleryImg2}
+                    alt="Commercial epoxy flooring"
+                    class="w-full h-full object-cover transform skew-x-3 scale-110"
+                  />
+                  <div class="absolute top-0 right-0 bg-brand-blue text-white px-4 py-2 transform skew-x-3 origin-top-right">
+                    <span class="font-heading italic uppercase text-sm">Commercial</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specs Bar -->
+    <section class="bg-brand-black py-16 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(255,255,255,0.03)_50%,rgba(255,255,255,0.03)_100%)] bg-[length:4px_100%]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+          {[
+            { value: "100%", label: "Solids Epoxy", sub: "No solvents, no shortcuts" },
+            { value: "20+", label: "Year Lifespan", sub: "With proper maintenance" },
+            { value: "4-Layer", label: "System", sub: "Base, build, color, clear" },
+            { value: "24hr", label: "Return to Service", sub: "Polyaspartic topcoat" }
+          ].map((stat, i) => (
+            <div class="text-center relative">
+              <div class="font-heading text-5xl md:text-6xl italic text-white mb-2">{stat.value}</div>
+              <div class="font-tech text-brand-blue uppercase tracking-widest text-sm font-bold">{stat.label}</div>
+              <div class="font-tech text-white/40 text-xs mt-1">{stat.sub}</div>
+              {i < 3 && <div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-16 bg-white/10"></div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Epoxy vs Others - Comparison -->
+    <section class="py-24 bg-surface relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Make the Right Choice</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+            Why Epoxy?
+          </h2>
+        </div>
+
+        <!-- Clean Comparison Table -->
+        <div class="bg-background">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="border-b-2 border-brand-blue">
+                <th class="text-left py-4 pl-4 pr-2 font-tech uppercase tracking-[0.2em] text-muted text-xs" style="width: 260px;">Feature</th>
+                <th class="text-center py-4" style="width: 130px;">
+                  <span class="inline-block bg-brand-blue text-white px-5 py-2 font-tech uppercase tracking-wider text-xs font-bold transform -skew-x-6">
+                    <span class="inline-block skew-x-6">Epoxy</span>
+                  </span>
+                </th>
+                <th class="text-center py-4 font-tech uppercase tracking-[0.2em] text-muted text-xs" style="width: 100px;">Paint</th>
+                <th class="text-center py-4 font-tech uppercase tracking-[0.2em] text-muted text-xs" style="width: 100px;">Tile</th>
+                <th class="text-center py-4 font-tech uppercase tracking-[0.2em] text-muted text-xs" style="width: 150px;">Bare Concrete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { feature: "Chemical Resistance", info: "Resists oils, gasoline, brake fluid, and household chemicals.", epoxy: true, paint: false, tile: false, bare: false },
+                { feature: "Hot Tire Pickup Resistant", info: "Won't peel when hot tires cool on the surface.", epoxy: true, paint: false, tile: true, bare: false },
+                { feature: "Impact Resistant", info: "Handles dropped tools and heavy equipment.", epoxy: true, paint: false, tile: false, bare: false },
+                { feature: "Easy to Clean", info: "Seamless surface with no grout lines to trap dirt.", epoxy: true, paint: true, tile: true, bare: false },
+                { feature: "Seamless Surface", info: "No joints or seams where moisture can penetrate.", epoxy: true, paint: true, tile: false, bare: true },
+                { feature: "Customizable Design", info: "Solid colors, metallics, flakes, and custom patterns.", epoxy: true, paint: true, tile: true, bare: false },
+                { feature: "20+ Year Lifespan", info: "Outlasts paint alternatives with basic maintenance.", epoxy: true, paint: false, tile: true, bare: false },
+                { feature: "UV Stable", info: "Won't yellow or fade from sunlight exposure.", epoxy: true, paint: false, tile: true, bare: true },
+              ].map((row, i) => (
+                <tr class={`border-b border-border ${i % 2 === 0 ? 'bg-brand-blue/[0.02]' : ''}`}>
+                  <td class="py-5 pl-4 pr-2" style="width: 260px;">
+                    <span class="font-tech text-brand-blue text-sm border-b border-brand-blue/30 hover:border-brand-blue cursor-default transition-colors group relative">
+                      {row.feature}
+                      <span class="absolute left-0 top-full mt-2 w-56 p-3 bg-brand-black text-white text-xs font-tech leading-relaxed shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 rounded pointer-events-none">
+                        {row.info}
+                      </span>
+                    </span>
+                  </td>
+                  <td class="py-5 bg-brand-blue/5" style="width: 130px;">
+                    {row.epoxy
+                      ? <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="#0071BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      : <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="#E11E36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    }
+                  </td>
+                  <td class="py-5" style="width: 100px;">
+                    {row.paint
+                      ? <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="#0071BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      : <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="#E11E36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    }
+                  </td>
+                  <td class="py-5" style="width: 100px;">
+                    {row.tile
+                      ? <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="#0071BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      : <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="#E11E36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    }
+                  </td>
+                  <td class="py-5" style="width: 150px;">
+                    {row.bare
+                      ? <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="#0071BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      : <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="#E11E36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    }
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process - Visual Timeline -->
+    <section class="py-24 bg-brand-black text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div>
+            <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Installation</span>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase mt-4">
+              The Process
+            </h2>
+          </div>
+          <p class="font-tech text-white/60 max-w-md leading-relaxed">
+            Every floor is different. Our process is designed to handle any condition and deliver flawless results.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              num: "01",
+              title: "Assess",
+              desc: "Moisture testing, crack mapping, and surface profiling. We identify every issue before we start.",
+              accent: "border-brand-red"
+            },
+            {
+              num: "02",
+              title: "Prepare",
+              desc: "Diamond grinding removes the top layer, opens the pores, and creates a surface profile for maximum bond.",
+              accent: "border-brand-blue"
+            },
+            {
+              num: "03",
+              title: "Apply",
+              desc: "Base coat, broadcast media, build coats, and UV-stable polyaspartic topcoat. Each layer matters.",
+              accent: "border-brand-red"
+            },
+            {
+              num: "04",
+              title: "Deliver",
+              desc: "Full walkthrough, care guide, and warranty documentation. Your floor is ready for decades of use.",
+              accent: "border-brand-blue"
+            }
+          ].map((step, i) => (
+            <div class="group relative">
+              <div class={`bg-white/5 border-t-4 ${step.accent} p-8 h-full hover:bg-white/10 transition-all duration-300`}>
+                <div class="font-heading text-7xl italic text-white/10 absolute top-4 right-4 group-hover:text-white/20 transition-colors">
+                  {step.num}
+                </div>
+                <div class="relative z-10">
+                  <h3 class="font-heading text-3xl italic uppercase mb-4">{step.title}</h3>
+                  <p class="font-tech text-white/60 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+              {i < 3 && (
+                <div class="hidden lg:flex absolute top-1/2 -right-3 transform -translate-y-1/2 z-20 w-6 h-6 bg-brand-black items-center justify-center">
+                  <ChevronRight class="w-4 h-4 text-white/40" />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-Width Gallery -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Our Work</span>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+              Recent Installs
+            </h2>
+          </div>
+          <a href="/#gallery" class="font-tech text-brand-blue hover:text-brand-red uppercase tracking-widest text-sm flex items-center gap-2 group">
+            View Full Portfolio
+            <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Masonry-style gallery -->
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="col-span-2 row-span-2">
+            <div class="relative h-full min-h-[400px] overflow-hidden group">
+              <img src={galleryImg1} alt="Epoxy floor installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="font-heading text-white text-xl italic">Residential Garage</span>
+              </div>
+            </div>
+          </div>
+          <div class="h-48 md:h-auto overflow-hidden group">
+            <img src={galleryImg3} alt="Commercial epoxy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="h-48 md:h-auto overflow-hidden group">
+            <img src={galleryImg4} alt="Industrial floor coating" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="h-48 overflow-hidden group">
+            <img src={galleryImg5} alt="Metallic epoxy floor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="h-48 overflow-hidden group col-span-2 md:col-span-1">
+            <img src={galleryImg6} alt="Epoxy floor detail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="h-48 overflow-hidden group">
+            <img src={galleryImg2} alt="Commercial installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-brand-blue relative overflow-hidden">
+      <!-- Diagonal pattern -->
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_20px,rgba(255,255,255,0.1)_20px,rgba(255,255,255,0.1)_40px)]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-white leading-[0.95] mb-6">
+              Ready to Transform <br/>Your Floor?
+            </h2>
+            <p class="font-tech text-white/80 text-lg leading-relaxed mb-8">
+              Get a free on-site assessment and detailed quote. We'll evaluate your concrete, discuss your goals, and provide a transparent proposal—no pressure, no gimmicks.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center gap-3 bg-white text-brand-blue px-8 py-4 font-heading italic uppercase text-lg transform -skew-x-12 hover:bg-brand-red hover:text-white transition-colors shadow-xl"
+              >
+                <span class="transform skew-x-12">Get Free Quote</span>
+              </a>
+              <a
+                href="tel:9729001009"
+                class="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-8 py-4 font-heading italic uppercase text-lg transform -skew-x-12 hover:bg-white hover:text-brand-blue transition-colors"
+              >
+                <span class="transform skew-x-12 flex items-center gap-2">
+                  <Phone class="w-5 h-5" />
+                  (972) 900-1009
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8">
+              <div class="font-tech text-white/60 uppercase tracking-widest text-xs mb-4">What's Included</div>
+              <div class="space-y-4">
+                {[
+                  "On-site concrete assessment",
+                  "Moisture and adhesion testing",
+                  "Custom color consultation",
+                  "Detailed written proposal",
+                  "No-obligation, no-pressure"
+                ].map((item) => (
+                  <div class="flex items-center gap-3">
+                    <Check class="w-5 h-5 text-white flex-shrink-0" />
+                    <span class="font-tech text-white">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

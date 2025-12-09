@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { QuotePage } from "../components/QuotePage";
+---
+
+<Layout title="Get A Free Quote | Bar None Coatings">
+  <QuotePage client:load />
+</Layout>
+
+<style is:global>
+  /* Hide scrollbar for quote page */
+  body:has(.quote-page) {
+    overflow: hidden;
+  }
+</style>

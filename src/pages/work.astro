@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navigation } from "../components/Navigation";
+import { SubpageHero } from "../components/layouts/SubpageHero";
+import { Footer } from "../components/Footer";
+import { WorkGallery } from "../components/WorkGallery";
+import { getCollection } from "astro:content";
+
+// Get all projects from the content collection
+const projectEntries = await getCollection("projects");
+
+// Transform the entries into the format expected by WorkGallery
+const projects = await Promise.all(
+  projectEntries.map(async (entry) => {
+    const { Content } = await entry.render();
+    return {
+      slug: entry.slug,
+      title: entry.data.title,
+      client: entry.data.client,
+      location: entry.data.location,
+      category: entry.data.category,
+      service: entry.data.service,
+      sqft: entry.data.sqft,
+      duration: entry.data.duration,
+      completedDate: entry.data.completedDate,
+      featured: entry.data.featured,
+      coverImage: entry.data.coverImage,
+      gallery: entry.data.gallery,
+      highlights: entry.data.highlights,
+      testimonial: entry.data.testimonial,
+      body: entry.body,
+    };
+  })
+);
+
+// Sort featured projects first
+const sortedProjects = projects.sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return 0;
+});
+
+// Use first project's cover as hero background
+const heroImage = sortedProjects[0]?.coverImage;
+---
+
+<Layout title="Our Work | Bar None Coatings">
+  <Navigation client:load />
+  <main>
+    <SubpageHero
+      client:load
+      title="Our Work"
+      subtitle="Every floor tells a story. Explore our portfolio of residential, commercial, and industrial projects across Texas, Oklahoma, and Arkansas."
+      breadcrumb={[
+        { label: "Home", href: "/" },
+        { label: "Our Work", href: "/work" },
+      ]}
+      backgroundImage={heroImage}
+    />
+
+    <!-- Main Gallery Section -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(var(--brand-blue) 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <WorkGallery client:load projects={sortedProjects} />
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-brand-blue relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_20px,rgba(255,255,255,0.1)_20px,rgba(255,255,255,0.1)_40px)]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
+              <span class="font-tech text-white/80 uppercase tracking-widest text-xs font-bold">Veteran Owned & Operated</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-heading italic uppercase text-white leading-[0.9]">
+              Ready to Start Your Project?
+            </h2>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="/quote"
+              class="inline-flex items-center justify-center bg-white text-brand-blue px-8 py-4 font-heading italic uppercase transform -skew-x-12 hover:bg-brand-red hover:text-white transition-colors"
+            >
+              <span class="transform skew-x-12">Get Free Quote</span>
+            </a>
+            <a
+              href="tel:9729001009"
+              class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/50 text-white px-8 py-4 font-heading italic uppercase transform -skew-x-12 hover:bg-white hover:text-brand-blue transition-colors"
+            >
+              <span class="transform skew-x-12 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                (972) 900-1009
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

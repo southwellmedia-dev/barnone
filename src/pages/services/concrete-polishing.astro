@@ -1,0 +1,352 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Navigation } from "../../components/Navigation";
+import { SubpageHero } from "../../components/layouts/SubpageHero";
+import { Footer } from "../../components/Footer";
+import { ActionButton } from "../../components/ui/ActionButton";
+import {
+  ArrowRight,
+  Phone,
+  ChevronRight,
+  X,
+  Check,
+  Sparkles,
+  Eye,
+  Shield,
+  Leaf
+} from "lucide-react";
+import heroImg from "../../assets/photos/13.png?url";
+import galleryImg1 from "../../assets/photos/3.png?url";
+import galleryImg2 from "../../assets/photos/12.png?url";
+import galleryImg3 from "../../assets/photos/502890779_122200928468109155_1894578586407965000_n.jpg?url";
+import galleryImg4 from "../../assets/photos/502921810_122200928936109155_7124812981231038953_n.jpg?url";
+---
+
+<Layout title="Concrete Polishing | Bar None Coatings">
+  <Navigation client:load />
+  <main>
+    <SubpageHero
+      client:load
+      title="Concrete Polishing"
+      subtitle="Transform raw concrete into a stunning, mirror-like finish. Durable, low-maintenance, and built to last."
+      breadcrumb={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/#services" },
+        { label: "Concrete Polishing", href: "/services/concrete-polishing" },
+      ]}
+      backgroundImage={heroImg}
+    />
+
+    <!-- The Problem/Solution Section -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Left Content -->
+          <div class="lg:col-span-5">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-1 bg-brand-red"></div>
+              <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">The Problem</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground leading-[0.9] mb-8">
+              Dull, Porous <br/>
+              <span class="text-muted">Concrete.</span>
+            </h2>
+
+            <div class="space-y-4 mb-10">
+              {[
+                "Surface absorbs stains and spills",
+                "Constant dusting and debris",
+                "Hard to clean and maintain",
+                "Industrial look without the appeal"
+              ].map((problem) => (
+                <div class="flex items-center gap-4 font-tech text-muted">
+                  <X class="w-5 h-5 text-brand-red flex-shrink-0" />
+                  <span>{problem}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="h-px bg-border my-10"></div>
+
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-1 bg-brand-blue"></div>
+              <span class="font-tech text-brand-blue font-bold uppercase tracking-widest text-sm">The Solution</span>
+            </div>
+
+            <h3 class="text-3xl md:text-4xl font-heading italic uppercase text-foreground leading-[0.9] mb-8">
+              Diamond-Polished <br/>
+              <span class="text-brand-blue">Concrete Systems</span>
+            </h3>
+
+            <p class="font-tech text-muted leading-relaxed mb-8">
+              Our multi-step polishing process uses progressively finer diamond abrasives to grind, hone, and polish your concrete to your desired sheen level—from a subtle satin to a high-gloss mirror finish.
+            </p>
+
+            <ActionButton href="/quote" client:load>
+              Get Free Assessment
+            </ActionButton>
+          </div>
+
+          <!-- Right: Image Stack -->
+          <div class="lg:col-span-7 relative hidden lg:block">
+            <div class="relative h-[600px] w-full">
+              <div class="absolute top-10 right-0 w-[80%] h-[90%] bg-brand-blue transform skew-x-3 rounded-sm"></div>
+              <div class="absolute top-0 right-12 w-[75%] h-[80%] bg-background p-2 shadow-2xl transform -skew-x-3">
+                <div class="w-full h-full overflow-hidden relative">
+                  <img
+                    src={galleryImg1}
+                    alt="Professional concrete polishing"
+                    class="w-full h-full object-cover transform skew-x-3 scale-110"
+                  />
+                  <div class="absolute top-0 right-0 bg-brand-red text-white px-4 py-2 transform skew-x-3 origin-top-right">
+                    <span class="font-heading italic uppercase text-sm">High Gloss</span>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bottom-12 left-0 w-[50%] h-[40%] bg-background p-2 shadow-2xl transform -skew-x-3 border border-border">
+                <div class="w-full h-full overflow-hidden relative">
+                  <img
+                    src={galleryImg2}
+                    alt="Satin finish concrete"
+                    class="w-full h-full object-cover transform skew-x-3 scale-110"
+                  />
+                  <div class="absolute top-0 right-0 bg-brand-blue text-white px-4 py-2 transform skew-x-3 origin-top-right">
+                    <span class="font-heading italic uppercase text-sm">Satin Finish</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-24 bg-surface relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Benefits</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+            Why Polished Concrete?
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              icon: Sparkles,
+              title: "Beautiful Finish",
+              desc: "From subtle satin to mirror-like high gloss—customize the sheen to match your space."
+            },
+            {
+              icon: Shield,
+              title: "Extreme Durability",
+              desc: "Hardened surface resists scratches, stains, and heavy traffic for decades."
+            },
+            {
+              icon: Leaf,
+              title: "Eco-Friendly",
+              desc: "No coatings, no VOCs. Uses your existing concrete slab—the greenest option."
+            },
+            {
+              icon: Eye,
+              title: "Low Maintenance",
+              desc: "Simple dust mopping and occasional wet cleaning. No waxing or resealing required."
+            }
+          ].map((benefit) => (
+            <div class="group bg-background border border-border p-8 hover:border-brand-blue transition-all duration-300">
+              <div class="w-14 h-14 bg-brand-blue/10 flex items-center justify-center mb-6 transform -skew-x-6 group-hover:bg-brand-blue/20 transition-colors">
+                <benefit.icon class="w-7 h-7 text-brand-blue transform skew-x-6" />
+              </div>
+              <h3 class="font-heading text-2xl italic uppercase text-foreground mb-3">{benefit.title}</h3>
+              <p class="font-tech text-muted text-sm leading-relaxed">{benefit.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specs Bar -->
+    <section class="bg-brand-black py-16 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,transparent_50%,rgba(255,255,255,0.03)_50%,rgba(255,255,255,0.03)_100%)] bg-[length:4px_100%]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+          {[
+            { value: "4", label: "Sheen Levels", sub: "Matte to high gloss" },
+            { value: "25+", label: "Year Lifespan", sub: "With proper care" },
+            { value: "800+", label: "Grit Finish", sub: "Diamond polished" },
+            { value: "Zero", label: "VOCs", sub: "No coatings needed" }
+          ].map((stat, i) => (
+            <div class="text-center relative">
+              <div class="font-heading text-5xl md:text-6xl italic text-white mb-2">{stat.value}</div>
+              <div class="font-tech text-brand-blue uppercase tracking-widest text-sm font-bold">{stat.label}</div>
+              <div class="font-tech text-white/40 text-xs mt-1">{stat.sub}</div>
+              {i < 3 && <div class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-16 bg-white/10"></div>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Sheen Levels -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-blue font-bold uppercase tracking-widest text-sm">Customization</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+            Choose Your Sheen
+          </h2>
+          <p class="font-tech text-muted mt-4 max-w-2xl mx-auto">
+            From industrial matte to showroom gloss, we offer multiple finish levels to match your aesthetic and functional needs.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { level: "Level 1", name: "Flat/Matte", grit: "100-200 Grit", desc: "Industrial look with low reflectivity. Great for warehouses." },
+            { level: "Level 2", name: "Satin", grit: "400 Grit", desc: "Subtle sheen with improved durability. Popular for retail." },
+            { level: "Level 3", name: "Semi-Gloss", grit: "800 Grit", desc: "Noticeable reflection and enhanced clarity. Great for offices." },
+            { level: "Level 4", name: "High Gloss", grit: "1500+ Grit", desc: "Mirror-like finish with maximum reflectivity. Showroom quality." }
+          ].map((sheen, i) => (
+            <div class="relative group">
+              <div class="absolute top-0 left-0 w-full h-1 bg-brand-blue" style={`opacity: ${0.25 + (i * 0.25)}`}></div>
+              <div class="bg-surface border border-border p-6 pt-8 h-full">
+                <span class="font-tech text-brand-red text-xs uppercase tracking-widest font-bold">{sheen.level}</span>
+                <h3 class="font-heading text-2xl italic uppercase text-foreground mt-2 mb-1">{sheen.name}</h3>
+                <span class="font-tech text-brand-blue text-sm">{sheen.grit}</span>
+                <p class="font-tech text-muted text-sm leading-relaxed mt-4">{sheen.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-24 bg-brand-black text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div>
+            <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Installation</span>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase mt-4">
+              The Process
+            </h2>
+          </div>
+          <p class="font-tech text-white/60 max-w-md leading-relaxed">
+            Polishing is a multi-step mechanical process. Each pass builds on the last to create your perfect finish.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              num: "01",
+              title: "Grind",
+              desc: "Coarse diamond tooling removes surface imperfections, coatings, and opens the concrete pores.",
+              accent: "border-brand-red"
+            },
+            {
+              num: "02",
+              title: "Hone",
+              desc: "Progressive grit levels smooth the surface and begin developing the sheen and clarity.",
+              accent: "border-brand-blue"
+            },
+            {
+              num: "03",
+              title: "Densify",
+              desc: "Chemical densifier penetrates and hardens the concrete, increasing durability and stain resistance.",
+              accent: "border-brand-red"
+            },
+            {
+              num: "04",
+              title: "Polish",
+              desc: "Final polishing passes achieve your desired sheen level, from satin to high-gloss mirror finish.",
+              accent: "border-brand-blue"
+            }
+          ].map((step, i) => (
+            <div class="group relative">
+              <div class={`bg-white/5 border-t-4 ${step.accent} p-8 h-full hover:bg-white/10 transition-all duration-300`}>
+                <div class="font-heading text-7xl italic text-white/10 absolute top-4 right-4 group-hover:text-white/20 transition-colors">
+                  {step.num}
+                </div>
+                <div class="relative z-10">
+                  <h3 class="font-heading text-3xl italic uppercase mb-4">{step.title}</h3>
+                  <p class="font-tech text-white/60 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+              {i < 3 && (
+                <div class="hidden lg:flex absolute top-1/2 -right-3 transform -translate-y-1/2 z-20 w-6 h-6 bg-brand-black items-center justify-center">
+                  <ChevronRight class="w-4 h-4 text-white/40" />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-brand-blue relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_20px,rgba(255,255,255,0.1)_20px,rgba(255,255,255,0.1)_40px)]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-white leading-[0.95] mb-6">
+              Ready for a <br/>Stunning Floor?
+            </h2>
+            <p class="font-tech text-white/80 text-lg leading-relaxed mb-8">
+              Get a free consultation and see what polished concrete can do for your space. We'll assess your slab condition and recommend the best approach.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/quote"
+                class="inline-flex items-center justify-center gap-3 bg-white text-brand-blue px-8 py-4 font-heading italic uppercase text-lg transform -skew-x-12 hover:bg-brand-red hover:text-white transition-colors shadow-xl"
+              >
+                <span class="transform skew-x-12">Get Free Quote</span>
+              </a>
+              <a
+                href="tel:9729001009"
+                class="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-8 py-4 font-heading italic uppercase text-lg transform -skew-x-12 hover:bg-white hover:text-brand-blue transition-colors"
+              >
+                <span class="transform skew-x-12 flex items-center gap-2">
+                  <Phone class="w-5 h-5" />
+                  (972) 900-1009
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8">
+              <div class="font-tech text-white/60 uppercase tracking-widest text-xs mb-4">Ideal Applications</div>
+              <div class="space-y-4">
+                {[
+                  "Retail stores & showrooms",
+                  "Office buildings & lobbies",
+                  "Warehouses & distribution centers",
+                  "Restaurants & hospitality",
+                  "Residential basements & living spaces"
+                ].map((item) => (
+                  <div class="flex items-center gap-3">
+                    <Check class="w-5 h-5 text-white flex-shrink-0" />
+                    <span class="font-tech text-white">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

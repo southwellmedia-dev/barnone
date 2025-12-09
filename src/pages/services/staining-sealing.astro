@@ -1,0 +1,406 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Navigation } from "../../components/Navigation";
+import { SubpageHero } from "../../components/layouts/SubpageHero";
+import { Footer } from "../../components/Footer";
+import { ActionButton } from "../../components/ui/ActionButton";
+import {
+  ArrowRight,
+  Phone,
+  ChevronRight,
+  X,
+  Check,
+  Palette,
+  Droplets,
+  Sun,
+  Layers
+} from "lucide-react";
+import heroImg from "../../assets/photos/14.png?url";
+import galleryImg1 from "../../assets/photos/3.png?url";
+import galleryImg2 from "../../assets/photos/12.png?url";
+---
+
+<Layout title="Staining & Sealing | Bar None Coatings">
+  <Navigation client:load />
+  <main>
+    <SubpageHero
+      client:load
+      title="Staining & Sealing"
+      subtitle="Add rich color and lasting protection. Transform ordinary concrete into a work of art."
+      breadcrumb={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/#services" },
+        { label: "Staining & Sealing", href: "/services/staining-sealing" },
+      ]}
+      backgroundImage={heroImg}
+    />
+
+    <!-- The Problem/Solution Section -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Left Content -->
+          <div class="lg:col-span-5">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-1 bg-brand-red"></div>
+              <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">The Problem</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground leading-[0.9] mb-8">
+              Gray, Boring <br/>
+              <span class="text-muted">Concrete.</span>
+            </h2>
+
+            <div class="space-y-4 mb-10">
+              {[
+                "Plain, uninspiring appearance",
+                "Vulnerable to moisture damage",
+                "Fading and discoloration over time",
+                "No character or visual interest"
+              ].map((problem) => (
+                <div class="flex items-center gap-4 font-tech text-muted">
+                  <X class="w-5 h-5 text-brand-red flex-shrink-0" />
+                  <span>{problem}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="h-px bg-border my-10"></div>
+
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-1 bg-brand-blue"></div>
+              <span class="font-tech text-brand-blue font-bold uppercase tracking-widest text-sm">The Solution</span>
+            </div>
+
+            <h3 class="text-3xl md:text-4xl font-heading italic uppercase text-foreground leading-[0.9] mb-8">
+              Professional <br/>
+              <span class="text-brand-blue">Stain & Seal Systems</span>
+            </h3>
+
+            <p class="font-tech text-muted leading-relaxed mb-8">
+              Our staining and sealing services bring life to your concrete with rich, penetrating colors and durable protective sealers. Whether you want an earthy acid-stained look or vibrant water-based colors, we deliver results that last.
+            </p>
+
+            <ActionButton href="/quote" client:load>
+              Get Free Assessment
+            </ActionButton>
+          </div>
+
+          <!-- Right: Image Stack -->
+          <div class="lg:col-span-7 relative hidden lg:block">
+            <div class="relative h-[600px] w-full">
+              <div class="absolute top-10 right-0 w-[80%] h-[90%] bg-brand-blue transform skew-x-3 rounded-sm"></div>
+              <div class="absolute top-0 right-12 w-[75%] h-[80%] bg-background p-2 shadow-2xl transform -skew-x-3">
+                <div class="w-full h-full overflow-hidden relative">
+                  <img
+                    src={galleryImg1}
+                    alt="Stained concrete floor"
+                    class="w-full h-full object-cover transform skew-x-3 scale-110"
+                  />
+                  <div class="absolute top-0 right-0 bg-brand-red text-white px-4 py-2 transform skew-x-3 origin-top-right">
+                    <span class="font-heading italic uppercase text-sm">Acid Stain</span>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bottom-12 left-0 w-[50%] h-[40%] bg-background p-2 shadow-2xl transform -skew-x-3 border border-border">
+                <div class="w-full h-full overflow-hidden relative">
+                  <img
+                    src={galleryImg2}
+                    alt="Sealed concrete patio"
+                    class="w-full h-full object-cover transform skew-x-3 scale-110"
+                  />
+                  <div class="absolute top-0 right-0 bg-brand-blue text-white px-4 py-2 transform skew-x-3 origin-top-right">
+                    <span class="font-heading italic uppercase text-sm">Sealed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stain Types -->
+    <section class="py-24 bg-surface relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Options</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+            Stain Types
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Acid Stain -->
+          <div class="bg-background border border-border p-8 relative overflow-hidden group hover:border-brand-red transition-colors">
+            <div class="absolute top-0 left-0 w-1 h-full bg-brand-red"></div>
+            <h3 class="font-heading text-3xl italic uppercase text-foreground mb-4">Acid Stain</h3>
+            <p class="font-tech text-muted leading-relaxed mb-6">
+              Acid stains chemically react with the minerals in concrete to create unique, variegated, earthy tones. Each floor is one-of-a-kind with natural color variations that mimic stone or marble.
+            </p>
+            <div class="space-y-3">
+              {[
+                "Permanent, won't peel or flake",
+                "Earthy, natural color palette",
+                "Each floor is unique",
+                "Best for interior applications"
+              ].map((item) => (
+                <div class="flex items-center gap-3 font-tech text-sm text-muted">
+                  <div class="w-2 h-2 bg-brand-red transform rotate-45 flex-shrink-0"></div>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Water-Based Stain -->
+          <div class="bg-background border border-border p-8 relative overflow-hidden group hover:border-brand-blue transition-colors">
+            <div class="absolute top-0 left-0 w-1 h-full bg-brand-blue"></div>
+            <h3 class="font-heading text-3xl italic uppercase text-foreground mb-4">Water-Based Stain</h3>
+            <p class="font-tech text-muted leading-relaxed mb-6">
+              Water-based stains offer a wider range of colors and more consistent, predictable results. From subtle tints to bold, vibrant hues—the color possibilities are virtually unlimited.
+            </p>
+            <div class="space-y-3">
+              {[
+                "Unlimited color options",
+                "Consistent, uniform coverage",
+                "Low VOC, eco-friendly",
+                "Great for logos and patterns"
+              ].map((item) => (
+                <div class="flex items-center gap-3 font-tech text-sm text-muted">
+                  <div class="w-2 h-2 bg-brand-blue transform rotate-45 flex-shrink-0"></div>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="bg-brand-black py-24 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Benefits</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-white mt-4">
+            Why Stain & Seal?
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              icon: Palette,
+              title: "Rich Color",
+              desc: "Deep, penetrating color that becomes part of the concrete itself."
+            },
+            {
+              icon: Droplets,
+              title: "Moisture Protection",
+              desc: "Sealers protect against water damage, stains, and chemical spills."
+            },
+            {
+              icon: Sun,
+              title: "UV Resistance",
+              desc: "Quality sealers prevent fading and maintain color vibrancy outdoors."
+            },
+            {
+              icon: Layers,
+              title: "Enhanced Durability",
+              desc: "Sealed concrete resists abrasion and lasts significantly longer."
+            }
+          ].map((benefit) => (
+            <div class="group bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all duration-300">
+              <div class="w-14 h-14 bg-brand-blue/20 flex items-center justify-center mb-6 transform -skew-x-6 group-hover:bg-brand-red/30 transition-colors">
+                <benefit.icon class="w-7 h-7 text-brand-blue transform skew-x-6 group-hover:text-brand-red transition-colors" />
+              </div>
+              <h3 class="font-heading text-2xl italic uppercase text-white mb-3">{benefit.title}</h3>
+              <p class="font-tech text-white/60 text-sm leading-relaxed">{benefit.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Sealer Types -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-blue font-bold uppercase tracking-widest text-sm">Protection</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+            Sealer Options
+          </h2>
+          <p class="font-tech text-muted mt-4 max-w-2xl mx-auto">
+            The right sealer depends on your application. We'll help you choose based on traffic, environment, and desired appearance.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              name: "Penetrating Sealer",
+              best: "Best for: Driveways, patios, exterior",
+              desc: "Soaks into the concrete and protects from within. Natural matte look, breathable, won't peel.",
+              features: ["Invisible protection", "Won't change appearance", "Breathable", "15+ year lifespan"]
+            },
+            {
+              name: "Acrylic Sealer",
+              best: "Best for: Decorative, light traffic",
+              desc: "Enhances color with a wet-look or matte finish. Affordable and easy to maintain.",
+              features: ["Color enhancement", "Multiple sheen levels", "Cost-effective", "2-5 year reapplication"]
+            },
+            {
+              name: "Polyurethane/Epoxy",
+              best: "Best for: High traffic, industrial",
+              desc: "Maximum protection and durability. High-gloss or satin finish with superior chemical resistance.",
+              features: ["Maximum durability", "Chemical resistant", "High-gloss available", "10+ year lifespan"]
+            }
+          ].map((sealer, i) => (
+            <div class="relative group">
+              <div class={`absolute top-0 left-0 w-full h-1 ${i === 1 ? 'bg-brand-red' : 'bg-brand-blue'}`}></div>
+              <div class="bg-surface border border-border p-8 pt-10 h-full">
+                <h3 class="font-heading text-2xl italic uppercase text-foreground mb-2">{sealer.name}</h3>
+                <span class="font-tech text-brand-red text-xs uppercase tracking-widest">{sealer.best}</span>
+                <p class="font-tech text-muted text-sm leading-relaxed mt-4 mb-6">{sealer.desc}</p>
+                <div class="space-y-2">
+                  {sealer.features.map((feature) => (
+                    <div class="flex items-center gap-2 font-tech text-sm text-muted">
+                      <Check class="w-4 h-4 text-brand-blue flex-shrink-0" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-24 bg-surface relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div>
+            <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Installation</span>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+              The Process
+            </h2>
+          </div>
+          <p class="font-tech text-muted max-w-md leading-relaxed">
+            Proper preparation is key to beautiful, long-lasting results. We never skip steps.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              num: "01",
+              title: "Clean",
+              desc: "Thorough cleaning and degreasing to remove all contaminants that could affect adhesion.",
+              accent: "border-brand-red"
+            },
+            {
+              num: "02",
+              title: "Prep",
+              desc: "Surface profiling ensures proper stain penetration and sealer adhesion.",
+              accent: "border-brand-blue"
+            },
+            {
+              num: "03",
+              title: "Stain",
+              desc: "Multiple coats applied and neutralized (acid stain) or layered (water-based) for depth.",
+              accent: "border-brand-red"
+            },
+            {
+              num: "04",
+              title: "Seal",
+              desc: "Multiple sealer coats applied for maximum protection and longevity.",
+              accent: "border-brand-blue"
+            }
+          ].map((step, i) => (
+            <div class="group relative">
+              <div class={`bg-background border border-border border-t-4 ${step.accent} p-8 h-full hover:shadow-lg transition-all duration-300`}>
+                <div class="font-heading text-7xl italic text-foreground/5 absolute top-4 right-4 group-hover:text-foreground/10 transition-colors">
+                  {step.num}
+                </div>
+                <div class="relative z-10">
+                  <h3 class="font-heading text-3xl italic uppercase text-foreground mb-4">{step.title}</h3>
+                  <p class="font-tech text-muted text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+              {i < 3 && (
+                <div class="hidden lg:flex absolute top-1/2 -right-3 transform -translate-y-1/2 z-20 w-6 h-6 bg-surface items-center justify-center">
+                  <ChevronRight class="w-4 h-4 text-muted" />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-brand-blue relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_20px,rgba(255,255,255,0.1)_20px,rgba(255,255,255,0.1)_40px)]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-white leading-[0.95] mb-6">
+              Ready to Add <br/>Color & Protection?
+            </h2>
+            <p class="font-tech text-white/80 text-lg leading-relaxed mb-8">
+              Get a free consultation to discuss colors, finishes, and sealer options. We'll help you choose the perfect combination for your space.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/quote"
+                class="inline-flex items-center justify-center gap-3 bg-white text-brand-blue px-8 py-4 font-heading italic uppercase text-lg transform -skew-x-12 hover:bg-brand-red hover:text-white transition-colors shadow-xl"
+              >
+                <span class="transform skew-x-12">Get Free Quote</span>
+              </a>
+              <a
+                href="tel:9729001009"
+                class="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-8 py-4 font-heading italic uppercase text-lg transform -skew-x-12 hover:bg-white hover:text-brand-blue transition-colors"
+              >
+                <span class="transform skew-x-12 flex items-center gap-2">
+                  <Phone class="w-5 h-5" />
+                  (972) 900-1009
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8">
+              <div class="font-tech text-white/60 uppercase tracking-widest text-xs mb-4">Popular Applications</div>
+              <div class="space-y-4">
+                {[
+                  "Patios & pool decks",
+                  "Driveways & walkways",
+                  "Basement floors",
+                  "Restaurant & retail floors",
+                  "Garage floors"
+                ].map((item) => (
+                  <div class="flex items-center gap-3">
+                    <Check class="w-5 h-5 text-white flex-shrink-0" />
+                    <span class="font-tech text-white">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

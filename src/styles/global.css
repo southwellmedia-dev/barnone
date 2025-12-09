@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   Brand Colors
+   ======================================== */
+:root {
+  /* Brand palette */
+  --brand-blue: #0071BD;
+  --brand-red: #E11E36;
+  --brand-black: #050505;
+  --brand-white: #FFFFFF;
+
+  /* Light Mode (default) */
+  --color-primary: var(--brand-blue);
+  --color-secondary: var(--brand-black);
+  --color-accent: var(--brand-red);
+  --color-background: var(--brand-white);
+  --color-surface: #f8fafc;
+  --color-surface-alt: #f1f5f9;
+  --color-foreground: var(--brand-black);
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+
+  /* Scrollbar colors */
+  --scrollbar-track: #f1f5f9;
+  --scrollbar-thumb: var(--brand-blue);
+  --scrollbar-thumb-hover: var(--brand-red);
+}
+
+/* Dark Mode */
+.dark {
+  --color-primary: var(--brand-blue);
+  --color-secondary: var(--brand-white);
+  --color-accent: var(--brand-red);
+  --color-background: var(--brand-black);
+  --color-surface: #0a0a0a;
+  --color-surface-alt: #141414;
+  --color-foreground: var(--brand-white);
+  --color-muted: #a1a1aa;
+  --color-border: #27272a;
+
+  /* Scrollbar colors */
+  --scrollbar-track: #141414;
+  --scrollbar-thumb: var(--brand-blue);
+  --scrollbar-thumb-hover: var(--brand-red);
+}
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+.font-heading {
+  font-family: "Russo One", sans-serif;
+}
+.font-tech {
+  font-family: "Chakra Petch", sans-serif;
+}
+
+/* ========================================
+   Animation Utilities
+   ======================================== */
+.slice-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  transition: clip-path 0.5s ease-out;
+}
+.slice-hidden {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+/* ========================================
+   Theme Transition
+   ======================================== */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Prevent FOUC (Flash of Unstyled Content) */
+html.dark {
+  color-scheme: dark;
+}

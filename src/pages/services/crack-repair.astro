@@ -1,0 +1,425 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Navigation } from "../../components/Navigation";
+import { SubpageHero } from "../../components/layouts/SubpageHero";
+import { Footer } from "../../components/Footer";
+import { ActionButton } from "../../components/ui/ActionButton";
+import {
+  Phone,
+  ChevronRight,
+  X,
+  Check,
+  AlertTriangle,
+  Shield,
+  Wrench,
+  Clock
+} from "lucide-react";
+import heroImg from "../../assets/photos/13.png?url";
+import galleryImg1 from "../../assets/photos/3.png?url";
+import galleryImg2 from "../../assets/photos/12.png?url";
+---
+
+<Layout title="Crack Repair | Bar None Coatings">
+  <Navigation client:load />
+  <main>
+    <SubpageHero
+      client:load
+      title="Crack Repair"
+      subtitle="Stop cracks from spreading. Professional concrete repair that restores structural integrity and appearance."
+      breadcrumb={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/#services" },
+        { label: "Crack Repair", href: "/services/crack-repair" },
+      ]}
+      backgroundImage={heroImg}
+    />
+
+    <!-- The Problem/Solution Section -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Left Content -->
+          <div class="lg:col-span-5">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-1 bg-brand-red"></div>
+              <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">The Problem</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground leading-[0.9] mb-8">
+              Cracks Are <br/>
+              <span class="text-muted">Getting Worse.</span>
+            </h2>
+
+            <div class="space-y-4 mb-10">
+              {[
+                "Small cracks becoming large cracks",
+                "Water seeping through and causing damage",
+                "Trip hazards and safety concerns",
+                "Coating failures at crack locations"
+              ].map((problem) => (
+                <div class="flex items-center gap-4 font-tech text-muted">
+                  <X class="w-5 h-5 text-brand-red flex-shrink-0" />
+                  <span>{problem}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="h-px bg-border my-10"></div>
+
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-1 bg-brand-blue"></div>
+              <span class="font-tech text-brand-blue font-bold uppercase tracking-widest text-sm">The Solution</span>
+            </div>
+
+            <h3 class="text-3xl md:text-4xl font-heading italic uppercase text-foreground leading-[0.9] mb-8">
+              Professional <br/>
+              <span class="text-brand-blue">Crack Repair</span>
+            </h3>
+
+            <p class="font-tech text-muted leading-relaxed mb-8">
+              We don't just fill cracks—we properly repair them using the right materials and techniques for each type of damage. From hairline cracks to structural issues, we restore your concrete and prepare it for coating.
+            </p>
+
+            <ActionButton href="/quote" client:load>
+              Get Free Assessment
+            </ActionButton>
+          </div>
+
+          <!-- Right: Image Stack -->
+          <div class="lg:col-span-7 relative hidden lg:block">
+            <div class="relative h-[600px] w-full">
+              <div class="absolute top-10 right-0 w-[80%] h-[90%] bg-brand-blue transform skew-x-3 rounded-sm"></div>
+              <div class="absolute top-0 right-12 w-[75%] h-[80%] bg-background p-2 shadow-2xl transform -skew-x-3">
+                <div class="w-full h-full overflow-hidden relative">
+                  <img
+                    src={galleryImg1}
+                    alt="Crack repair in progress"
+                    class="w-full h-full object-cover transform skew-x-3 scale-110"
+                  />
+                  <div class="absolute top-0 right-0 bg-brand-red text-white px-4 py-2 transform skew-x-3 origin-top-right">
+                    <span class="font-heading italic uppercase text-sm">Before</span>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute bottom-12 left-0 w-[50%] h-[40%] bg-background p-2 shadow-2xl transform -skew-x-3 border border-border">
+                <div class="w-full h-full overflow-hidden relative">
+                  <img
+                    src={galleryImg2}
+                    alt="Repaired concrete floor"
+                    class="w-full h-full object-cover transform skew-x-3 scale-110"
+                  />
+                  <div class="absolute top-0 right-0 bg-brand-blue text-white px-4 py-2 transform skew-x-3 origin-top-right">
+                    <span class="font-heading italic uppercase text-sm">After</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Act Now -->
+    <section class="py-16 bg-brand-red text-white relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+          <AlertTriangle class="w-16 h-16 flex-shrink-0" />
+          <div>
+            <h3 class="font-heading text-2xl md:text-3xl italic uppercase mb-2">Cracks Don't Fix Themselves</h3>
+            <p class="font-tech text-white/80 leading-relaxed">
+              Left untreated, cracks will continue to grow. Water infiltration causes further damage through freeze-thaw cycles, soil erosion, and reinforcement corrosion. The longer you wait, the more expensive the repair becomes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crack Types -->
+    <section class="py-24 bg-surface relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Diagnosis</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+            Types of Cracks
+          </h2>
+          <p class="font-tech text-muted mt-4 max-w-2xl mx-auto">
+            Different cracks require different solutions. We identify the cause and apply the appropriate repair method.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            {
+              name: "Hairline Cracks",
+              cause: "Shrinkage during curing",
+              solution: "Surface sealers or epoxy injection",
+              severity: "Low"
+            },
+            {
+              name: "Settlement Cracks",
+              cause: "Soil movement or compaction",
+              solution: "Polyurethane foam injection, grinding",
+              severity: "Medium"
+            },
+            {
+              name: "Structural Cracks",
+              cause: "Overloading or foundation issues",
+              solution: "Epoxy injection, carbon fiber reinforcement",
+              severity: "High"
+            },
+            {
+              name: "Spalling",
+              cause: "Freeze-thaw, deicing salts",
+              solution: "Remove and patch with polymer-modified repair",
+              severity: "Medium"
+            },
+            {
+              name: "Control Joint Failure",
+              cause: "Improper joint placement or depth",
+              solution: "Joint re-cutting and proper filling",
+              severity: "Low"
+            },
+            {
+              name: "Heaving",
+              cause: "Frost or tree roots",
+              solution: "Grinding, leveling, or slab replacement",
+              severity: "High"
+            }
+          ].map((crack) => (
+            <div class="bg-background border border-border p-6 hover:border-brand-blue transition-colors">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="font-heading text-xl italic uppercase text-foreground">{crack.name}</h3>
+                <span class={`font-tech text-xs uppercase px-2 py-1 ${
+                  crack.severity === 'Low' ? 'bg-green-500/20 text-green-600' :
+                  crack.severity === 'Medium' ? 'bg-yellow-500/20 text-yellow-600' :
+                  'bg-red-500/20 text-red-600'
+                }`}>{crack.severity}</span>
+              </div>
+              <div class="space-y-3 font-tech text-sm">
+                <div>
+                  <span class="text-muted">Cause:</span>
+                  <span class="text-foreground ml-2">{crack.cause}</span>
+                </div>
+                <div>
+                  <span class="text-muted">Solution:</span>
+                  <span class="text-foreground ml-2">{crack.solution}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Repair Methods -->
+    <section class="py-24 bg-brand-black text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Methods</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase mt-4">
+            How We Fix It
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            {
+              title: "Epoxy Injection",
+              desc: "Structural-grade epoxy is injected under pressure to fill cracks completely and restore load-bearing capacity. Creates a bond stronger than the original concrete.",
+              best: "Best for: Structural cracks, basement walls, load-bearing slabs"
+            },
+            {
+              title: "Polyurethane Injection",
+              desc: "Flexible foam injection that expands to fill voids and remains flexible to accommodate movement. Ideal for active cracks and water intrusion.",
+              best: "Best for: Active cracks, water leaks, expansion joints"
+            },
+            {
+              title: "Routing & Sealing",
+              desc: "Cracks are widened with a saw to create a uniform channel, then filled with flexible sealant. Prevents water infiltration and allows for movement.",
+              best: "Best for: Control joints, exterior slabs, decorative concrete"
+            },
+            {
+              title: "Overlay Systems",
+              desc: "When surface damage is extensive, a polymer-modified overlay creates a new wearing surface over properly prepared and repaired concrete.",
+              best: "Best for: Spalling, widespread surface damage, aesthetic restoration"
+            }
+          ].map((method, i) => (
+            <div class="bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-all">
+              <h3 class="font-heading text-2xl italic uppercase mb-4">{method.title}</h3>
+              <p class="font-tech text-white/70 leading-relaxed mb-4">{method.desc}</p>
+              <span class="font-tech text-brand-blue text-sm">{method.best}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-24 bg-background relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <span class="font-tech text-brand-blue font-bold uppercase tracking-widest text-sm">Benefits</span>
+          <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+            Why Repair First?
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              icon: Shield,
+              title: "Prevent Further Damage",
+              desc: "Stop cracks from spreading and causing more extensive, expensive problems."
+            },
+            {
+              icon: Wrench,
+              title: "Coating Longevity",
+              desc: "Coatings applied over unrepaired cracks will fail. Proper prep ensures lasting results."
+            },
+            {
+              icon: AlertTriangle,
+              title: "Safety First",
+              desc: "Eliminate trip hazards and prevent injuries from damaged concrete surfaces."
+            },
+            {
+              icon: Clock,
+              title: "Save Money",
+              desc: "Early repair is always cheaper than waiting for problems to escalate."
+            }
+          ].map((benefit) => (
+            <div class="group bg-surface border border-border p-8 hover:border-brand-blue transition-all duration-300">
+              <div class="w-14 h-14 bg-brand-blue/10 flex items-center justify-center mb-6 transform -skew-x-6 group-hover:bg-brand-blue/20 transition-colors">
+                <benefit.icon class="w-7 h-7 text-brand-blue transform skew-x-6" />
+              </div>
+              <h3 class="font-heading text-2xl italic uppercase text-foreground mb-3">{benefit.title}</h3>
+              <p class="font-tech text-muted text-sm leading-relaxed">{benefit.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="py-24 bg-surface relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div>
+            <span class="font-tech text-brand-red font-bold uppercase tracking-widest text-sm">Our Approach</span>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-foreground mt-4">
+              The Process
+            </h2>
+          </div>
+          <p class="font-tech text-muted max-w-md leading-relaxed">
+            Every crack tells a story. We diagnose the cause before prescribing the solution.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              num: "01",
+              title: "Assess",
+              desc: "Thorough inspection to identify crack types, causes, and extent of damage.",
+              accent: "border-brand-red"
+            },
+            {
+              num: "02",
+              title: "Prepare",
+              desc: "Clean out debris, widen cracks if needed, and prepare surfaces for repair materials.",
+              accent: "border-brand-blue"
+            },
+            {
+              num: "03",
+              title: "Repair",
+              desc: "Apply the appropriate repair method—injection, filling, patching, or overlay.",
+              accent: "border-brand-red"
+            },
+            {
+              num: "04",
+              title: "Finish",
+              desc: "Grind flush, blend with surrounding surface, and prepare for coating if applicable.",
+              accent: "border-brand-blue"
+            }
+          ].map((step, i) => (
+            <div class="group relative">
+              <div class={`bg-background border border-border border-t-4 ${step.accent} p-8 h-full hover:shadow-lg transition-all duration-300`}>
+                <div class="font-heading text-7xl italic text-foreground/5 absolute top-4 right-4 group-hover:text-foreground/10 transition-colors">
+                  {step.num}
+                </div>
+                <div class="relative z-10">
+                  <h3 class="font-heading text-3xl italic uppercase text-foreground mb-4">{step.title}</h3>
+                  <p class="font-tech text-muted text-sm leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+              {i < 3 && (
+                <div class="hidden lg:flex absolute top-1/2 -right-3 transform -translate-y-1/2 z-20 w-6 h-6 bg-surface items-center justify-center">
+                  <ChevronRight class="w-4 h-4 text-muted" />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-brand-blue relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_20px,rgba(255,255,255,0.1)_20px,rgba(255,255,255,0.1)_40px)]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-4xl md:text-5xl font-heading italic uppercase text-white leading-[0.95] mb-6">
+              Don't Wait for <br/>Cracks to Spread
+            </h2>
+            <p class="font-tech text-white/80 text-lg leading-relaxed mb-8">
+              Get a free assessment of your concrete damage. We'll identify the problem, explain your options, and provide a clear path to repair.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/quote"
+                class="inline-flex items-center justify-center gap-3 bg-white text-brand-blue px-8 py-4 font-heading italic uppercase text-lg transform -skew-x-12 hover:bg-brand-red hover:text-white transition-colors shadow-xl"
+              >
+                <span class="transform skew-x-12">Get Free Quote</span>
+              </a>
+              <a
+                href="tel:9729001009"
+                class="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-8 py-4 font-heading italic uppercase text-lg transform -skew-x-12 hover:bg-white hover:text-brand-blue transition-colors"
+              >
+                <span class="transform skew-x-12 flex items-center gap-2">
+                  <Phone class="w-5 h-5" />
+                  (972) 900-1009
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-8">
+              <div class="font-tech text-white/60 uppercase tracking-widest text-xs mb-4">Our Repair Services Include</div>
+              <div class="space-y-4">
+                {[
+                  "Crack assessment & diagnosis",
+                  "Epoxy & polyurethane injection",
+                  "Spall repair & patching",
+                  "Joint repair & resealing",
+                  "Surface preparation for coatings"
+                ].map((item) => (
+                  <div class="flex items-center gap-3">
+                    <Check class="w-5 h-5 text-white flex-shrink-0" />
+                    <span class="font-tech text-white">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
