@@ -38,6 +38,10 @@ dist-ssr
 claudedocs/
 
 # Temporary files
-*.png
 nul
 old/
+
+# Screenshots (but not favicon)
+image.png
+problem.png
+table.png
