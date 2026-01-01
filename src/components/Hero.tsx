@@ -1,7 +1,7 @@
 import React from "react";
 import { Award, Star, Shield } from "lucide-react";
 import { ActionButton } from "./ui/ActionButton";
-import p3 from "../assets/photos/3.png?url";
+import p3 from "../assets/barnone-truck.jpg?url";
 import p12 from "../assets/photos/12.png?url";
 import heroBg from "../assets/photos/488642929_122192708912109155_1419170129794126114_n.jpg?url";
 
@@ -35,7 +35,8 @@ export const Hero = () => {
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: "radial-gradient(var(--brand-blue) 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(var(--brand-blue) 1px, transparent 1px)",
             backgroundSize: "24px 24px",
           }}
         ></div>
@@ -87,7 +88,9 @@ export const Hero = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-heading text-3xl text-foreground">Licensed</h4>
+              <h4 className="font-heading text-3xl text-foreground">
+                Licensed
+              </h4>
               <p className="font-tech text-xs text-muted uppercase tracking-wider">
                 & Insured
               </p>
