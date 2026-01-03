@@ -27,18 +27,38 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <!-- reCAPTCHA v3 -->
-    <script async src="https://www.google.com/recaptcha/api.js?render=6Le9SD4sAAAAAMVbV3GukJA_MVYdE4W0LSEkLpjY"></script>
+    <script
+      async
+      src="https://www.google.com/recaptcha/api.js?render=6Le9SD4sAAAAAMVbV3GukJA_MVYdE4W0LSEkLpjY"
+    ></script>
     <!-- Theme initialization script - prevents FOUC -->
     <script is:inline>
-      (function() {
-        const stored = localStorage.getItem('theme');
-        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
+      (function () {
+        const stored = localStorage.getItem("theme");
+        if (
+          stored === "dark" ||
+          (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
         }
       })();
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TVND83PBDL"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-TVND83PBDL");
+    </script>
   </head>
-  <body class="bg-background text-foreground antialiased overflow-x-hidden transition-colors duration-300">
+  <body
+    class="bg-background text-foreground antialiased overflow-x-hidden transition-colors duration-300"
+  >
     <slot />
   </body>
 </html>
