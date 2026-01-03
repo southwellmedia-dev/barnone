@@ -1,8 +1,62 @@
-import React from "react";
-import { Phone, Crosshair, ArrowRight } from "lucide-react";
+import React, { useState } from "react";
+import { Phone, Crosshair, ArrowRight, Loader2, CheckCircle } from "lucide-react";
 import p_recent4 from "../assets/photos/488642929_122192708912109155_1419170129794126114_n.jpg";
 
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
+const RECAPTCHA_SITE_KEY = '6Le9SD4sAAAAAMVbV3GukJA_MVYdE4W0LSEkLpjY';
+
 export const Contact = () => {
+  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormState('submitting');
+    setErrorMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData);
+    const form = e.currentTarget;
+
+    try {
+      // Get reCAPTCHA token
+      const token = await new Promise<string>((resolve, reject) => {
+        window.grecaptcha.ready(async () => {
+          try {
+            const token = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'CONTACT_FORM' });
+            resolve(token);
+          } catch (err) {
+            reject(err);
+          }
+        });
+      });
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data, recaptchaToken: token }),
+      });
+
+      if (response.ok) {
+        setFormState('success');
+        form.reset();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch {
+      setFormState('error');
+      setErrorMessage('Something went wrong. Please call us directly.');
+    }
+  };
+
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background Image with Overlay */}
@@ -25,14 +79,10 @@ export const Contact = () => {
             <div className="md:col-span-1 space-y-8">
               <div>
                 <h3 className="font-heading text-2xl italic uppercase text-foreground mb-4">
-                  Contact HQ
+                  Contact Bar None
                 </h3>
                 <p className="font-tech text-muted text-sm mb-6">
                   Ready to upgrade your floors? Contact Nick for a consultation.
-                  <br />
-                  <span className="text-brand-red font-bold">
-                    Licensed & Insured
-                  </span>
                 </p>
 
                 <div className="space-y-4">
@@ -96,6 +146,19 @@ export const Contact = () => {
                   them our way.
                 </p>
               </div>
+
+              {/* Licensed & Insured Badge */}
+              <div className="flex items-center gap-3 bg-surface border border-border px-4 py-3">
+                <div className="w-8 h-8 bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center">
+                  <svg className="w-4 h-4 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-heading text-sm italic text-foreground">Licensed & Insured</div>
+                  <div className="text-[10px] text-muted uppercase tracking-wider">Full Coverage</div>
+                </div>
+              </div>
             </div>
 
             {/* Form */}
@@ -110,65 +173,114 @@ export const Contact = () => {
                 </p>
               </div>
 
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="group">
-                    <label className="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full bg-surface border-b-2 border-border p-3 font-tech focus:outline-none focus:border-brand-red focus:bg-background transition-colors text-foreground"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div className="group">
-                    <label className="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-2">
-                      Email or Phone
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full bg-surface border-b-2 border-border p-3 font-tech focus:outline-none focus:border-brand-red focus:bg-background transition-colors text-foreground"
-                      placeholder="Contact Info"
-                    />
-                  </div>
-                </div>
-
-                <div className="group">
-                  <label className="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-2">
-                    Service Needed
-                  </label>
-                  <select className="w-full bg-surface border-b-2 border-border p-3 font-tech focus:outline-none focus:border-brand-red focus:bg-background transition-colors text-muted">
-                    <option>Select Service...</option>
-                    <option>Epoxy Flooring (Garage/Residential)</option>
-                    <option>Commercial/Industrial Coating</option>
-                    <option>Concrete Polishing</option>
-                    <option>Staining & Sealing</option>
-                    <option>Crack Repair</option>
-                  </select>
-                </div>
-
-                <div className="group">
-                  <label className="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-2">
-                    Project Details
-                  </label>
-                  <textarea
-                    rows={3}
-                    className="w-full bg-surface border-b-2 border-border p-3 font-tech focus:outline-none focus:border-brand-red focus:bg-background transition-colors text-foreground"
-                    placeholder="Location, Approx Sq Footage, Current Condition..."
-                  />
-                </div>
-
-                <div className="pt-4 flex justify-start">
+              {formState === 'success' ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+                  <h3 className="font-heading text-2xl italic uppercase text-foreground mb-2">
+                    Request Received!
+                  </h3>
+                  <p className="font-tech text-muted mb-6">
+                    We'll get back to you within 24 hours.
+                  </p>
                   <button
                     type="button"
-                    className="bg-brand-red text-white font-heading text-xl italic uppercase px-12 py-4 transform -skew-x-12 hover:bg-red-700 transition-colors shadow-lg shadow-red-500/30 flex items-center gap-3"
+                    onClick={() => setFormState('idle')}
+                    className="font-tech text-sm text-brand-blue hover:underline"
                   >
-                    <span className="transform skew-x-12">Submit Request</span>
-                    <ArrowRight className="transform skew-x-12" size={20} />
+                    Submit another request
                   </button>
                 </div>
-              </form>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="group">
+                      <label className="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        disabled={formState === 'submitting'}
+                        className="w-full bg-surface border-b-2 border-border p-3 font-tech focus:outline-none focus:border-brand-red focus:bg-background transition-colors text-foreground disabled:opacity-50"
+                        placeholder="Your Name"
+                      />
+                    </div>
+                    <div className="group">
+                      <label className="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-2">
+                        Email or Phone
+                      </label>
+                      <input
+                        type="text"
+                        name="contact"
+                        required
+                        disabled={formState === 'submitting'}
+                        className="w-full bg-surface border-b-2 border-border p-3 font-tech focus:outline-none focus:border-brand-red focus:bg-background transition-colors text-foreground disabled:opacity-50"
+                        placeholder="Contact Info"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="group">
+                    <label className="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-2">
+                      Service Needed
+                    </label>
+                    <select
+                      name="service"
+                      required
+                      disabled={formState === 'submitting'}
+                      className="w-full bg-surface border-b-2 border-border p-3 font-tech focus:outline-none focus:border-brand-red focus:bg-background transition-colors text-muted disabled:opacity-50"
+                    >
+                      <option value="">Select Service...</option>
+                      <option value="epoxy-residential">Epoxy Flooring (Garage/Residential)</option>
+                      <option value="commercial-industrial">Commercial/Industrial Coating</option>
+                      <option value="concrete-polishing">Concrete Polishing</option>
+                      <option value="staining-sealing">Staining & Sealing</option>
+                      <option value="crack-repair">Crack Repair</option>
+                    </select>
+                  </div>
+
+                  <div className="group">
+                    <label className="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-2">
+                      Project Details
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={3}
+                      required
+                      disabled={formState === 'submitting'}
+                      className="w-full bg-surface border-b-2 border-border p-3 font-tech focus:outline-none focus:border-brand-red focus:bg-background transition-colors text-foreground disabled:opacity-50"
+                      placeholder="Location, Approx Sq Footage, Current Condition..."
+                    />
+                  </div>
+
+                  {formState === 'error' && (
+                    <div className="bg-red-500/10 border border-red-500/30 p-4 text-red-400 font-tech text-sm">
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  <div className="pt-4 flex justify-start">
+                    <button
+                      type="submit"
+                      disabled={formState === 'submitting'}
+                      className="bg-brand-red text-white font-heading text-xl italic uppercase px-12 py-4 transform -skew-x-12 hover:bg-red-700 transition-colors shadow-lg shadow-red-500/30 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {formState === 'submitting' ? (
+                        <>
+                          <Loader2 className="transform skew-x-12 animate-spin" size={20} />
+                          <span className="transform skew-x-12">Sending...</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="transform skew-x-12">Submit Request</span>
+                          <ArrowRight className="transform skew-x-12" size={20} />
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
         </div>
