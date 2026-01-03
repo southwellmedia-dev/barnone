@@ -69,7 +69,7 @@ export const Contact = () => {
         <div className="absolute inset-0 bg-brand-black/95 backdrop-blur-md grayscale" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="bg-background border border-border shadow-2xl p-8 md:p-12 relative overflow-hidden">
           {/* Top Accent Bar */}
           <div className="absolute top-0 left-0 w-full h-2 bg-brand-blue" />
