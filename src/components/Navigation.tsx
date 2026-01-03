@@ -173,8 +173,6 @@ export const Navigation = () => {
             </div>
           ))}
 
-          <ThemeToggle />
-
           <a
             href="tel:9729001009"
             className="hidden xl:flex px-5 py-2.5 bg-brand-blue text-white font-tech uppercase text-xs font-bold tracking-wider transform -skew-x-12 hover:bg-blue-700 transition-colors items-center gap-2 shadow-md whitespace-nowrap"
@@ -191,6 +189,8 @@ export const Navigation = () => {
           >
             <span className="transform skew-x-12">Get A Quote</span>
           </a>
+
+          <ThemeToggle />
         </div>
 
         {/* Mobile Toggle */}
