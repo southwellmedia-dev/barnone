@@ -1,9 +1,9 @@
 import React from "react";
 import { HardHat, Check } from "lucide-react";
-import p13 from "../assets/photos/13.png?url";
-import p14 from "../assets/photos/14.png?url";
-import p15 from "../assets/photos/15.png?url";
-import p3 from "../assets/photos/3.png?url";
+import epoxyImg from "../assets/services/garage-flake-floor.webp?url";
+import polishingImg from "../assets/services/concrete-clean-seal.webp?url";
+import stainingImg from "../assets/services/grind-stain-seal.webp?url";
+import repairImg from "../assets/services/crack-divot-repair.webp?url";
 
 export const Services = () => {
   const services = [
@@ -11,25 +11,25 @@ export const Services = () => {
       name: "Epoxy Flooring",
       tag: "Best Seller",
       desc: "Durable, versatile, and stunning. Resistant to stains, chemicals, scratches, and abrasion. Ideal for high-traffic areas.",
-      image: p13,
+      image: epoxyImg,
       features: ["Heavy Duty", "Showroom Shine", "Custom Colors"],
     },
     {
       name: "Concrete Polishing",
       desc: "Achieve a sleek, modern look. We reveal the natural beauty of aggregate for a smooth, reflective surface.",
-      image: p14,
+      image: polishingImg,
       features: ["Dust Proof", "Low Maintenance", "Reflective"],
     },
     {
       name: "Staining & Sealing",
       desc: "Elevate surfaces with vibrant custom colors or protect with professional sealing to resist wear and tear.",
-      image: p15,
+      image: stainingImg,
       features: ["UV Stable", "Vibrant Tones", "Weather Proof"],
     },
     {
       name: "Crack Repair",
       desc: "Seamlessly repair cracks of all sizes, ensuring your surfaces are both beautiful and structurally sound.",
-      image: p3,
+      image: repairImg,
       features: ["Structural Bond", "Seamless Finish", "Surface Prep"],
     },
   ];

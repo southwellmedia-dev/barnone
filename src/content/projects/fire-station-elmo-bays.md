@@ -1,14 +1,14 @@
 ---
 title: "Firehouse Topcoat"
 client: "Elmo Fire Department"
-location: "Elmo, TX"
+location: "Quinlan, TX"
 category: "public"
 service: "epoxy"
 sqft: "3,200"
 duration: "72 Hours"
 completedDate: "2024"
 featured: true
-coverImage: "/src/assets/projects/3/558092986_122217160484109155_1660520998069509058_n.jpg"
+coverImage: "/src/assets/services/firehouse-quinlan.webp"
 gallery:
   - "/src/assets/projects/3/558092986_122217160484109155_1660520998069509058_n.jpg"
   - "/src/assets/projects/3/559080955_122217160472109155_249736177762065013_n.jpg"
@@ -28,7 +28,7 @@ highlights:
 testimonial:
   quote: "Bar None worked around our schedule and had us back in service fast. Professional work from start to finish."
   author: "Elmo Fire Department"
-  role: "Elmo, TX"
+  role: "Quinlan, TX"
 ---
 
 Firehouse flooring done right! Bar None Coatings delivered a full topcoat transformation across four bays at the Elmo Fire Department, followed by bold red safety striping to finish the job strong.

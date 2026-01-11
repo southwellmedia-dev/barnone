@@ -19,7 +19,7 @@ import {
 import logo from "../assets/barnone-lightmode.svg?url";
 import heroBg from "../assets/photos/12.png?url";
 
-const RECAPTCHA_SITE_KEY = "6Le9SD4sAAAAAMVbV3GukJA_MVYdE4W0LSEkLpjY";
+const RECAPTCHA_SITE_KEY = "6LcUXUYsAAAAAHqOUaJlnwoXewtxwA64YuLqXimm";
 
 type ServiceType = "epoxy" | "polishing" | "staining" | "repair" | null;
 type ProjectType = "residential" | "commercial" | "industrial" | null;

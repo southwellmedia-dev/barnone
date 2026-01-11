@@ -12,7 +12,7 @@ import {
   Award,
   MessageSquare,
   Crosshair,
-  Send
+  Send,
 } from "lucide-react";
 import heroBg from "../assets/photos/571114222_122218302566109155_5635964258491913720_n.jpg?url";
 ---
@@ -36,7 +36,8 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
       <div
         class="absolute inset-0 opacity-[0.02]"
         style="background-image: radial-gradient(var(--brand-blue) 1px, transparent 1px); background-size: 24px 24px;"
-      />
+      >
+      </div>
 
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -48,16 +49,20 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                 href="tel:9729001009"
                 class="flex items-center gap-3 text-foreground group"
               >
-                <div class="w-12 h-12 bg-surface flex items-center justify-center group-hover:bg-brand-red transition-colors">
-                  <Phone class="w-5 h-5 group-hover:text-white transition-colors" />
+                <div
+                  class="w-12 h-12 bg-surface flex items-center justify-center group-hover:bg-brand-red transition-colors"
+                >
+                  <Phone
+                    class="w-5 h-5 group-hover:text-white transition-colors"
+                  />
                 </div>
                 <div>
-                  <div class="text-[10px] font-bold uppercase text-muted tracking-widest">
+                  <div
+                    class="text-[10px] font-bold uppercase text-muted tracking-widest"
+                  >
                     Call or Text
                   </div>
-                  <div class="font-heading text-xl italic">
-                    (972) 900-1009
-                  </div>
+                  <div class="font-heading text-xl italic">(972) 900-1009</div>
                 </div>
               </a>
 
@@ -65,11 +70,17 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                 href="mailto:barnonecoatingsllc@gmail.com"
                 class="flex items-center gap-3 text-foreground group"
               >
-                <div class="w-12 h-12 bg-surface flex items-center justify-center group-hover:bg-brand-red transition-colors">
-                  <Mail class="w-5 h-5 group-hover:text-white transition-colors" />
+                <div
+                  class="w-12 h-12 bg-surface flex items-center justify-center group-hover:bg-brand-red transition-colors"
+                >
+                  <Mail
+                    class="w-5 h-5 group-hover:text-white transition-colors"
+                  />
                 </div>
                 <div>
-                  <div class="text-[10px] font-bold uppercase text-muted tracking-widest">
+                  <div
+                    class="text-[10px] font-bold uppercase text-muted tracking-widest"
+                  >
                     Email
                   </div>
                   <div class="font-heading text-sm italic">
@@ -81,24 +92,32 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
 
             <!-- Service Area -->
             <div class="bg-brand-black text-white p-8 relative overflow-hidden">
-              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-blue to-transparent"></div>
+              <div
+                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-blue to-transparent"
+              >
+              </div>
               <div class="flex items-center gap-3 mb-4">
                 <MapPin class="w-5 h-5 text-brand-red" />
-                <span class="font-tech text-xs uppercase tracking-widest">Service Area</span>
+                <span class="font-tech text-xs uppercase tracking-widest"
+                  >Service Area</span
+                >
               </div>
               <h3 class="font-heading text-2xl italic uppercase mb-4">
                 Proudly Serving
               </h3>
               <div class="space-y-3">
-                {["Texas", "Oklahoma", "Arkansas"].map((state) => (
-                  <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 bg-brand-blue transform rotate-45"></div>
-                    <span class="font-tech text-white/80">{state}</span>
-                  </div>
-                ))}
+                {
+                  ["Texas", "Oklahoma", "Arkansas"].map((state) => (
+                    <div class="flex items-center gap-2">
+                      <div class="w-2 h-2 bg-brand-blue transform rotate-45" />
+                      <span class="font-tech text-white/80">{state}</span>
+                    </div>
+                  ))
+                }
               </div>
               <p class="font-tech text-white/50 text-sm mt-6 leading-relaxed">
-                Based in the DFW Metroplex. We travel for larger commercial projects.
+                Based in the DFW Metroplex. We travel for larger commercial
+                projects.
               </p>
             </div>
 
@@ -106,68 +125,100 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
             <div class="bg-surface border border-border p-8">
               <div class="flex items-center gap-3 mb-4">
                 <Clock class="w-5 h-5 text-brand-blue" />
-                <span class="font-tech text-xs uppercase tracking-widest text-muted">Hours</span>
+                <span
+                  class="font-tech text-xs uppercase tracking-widest text-muted"
+                  >Hours</span
+                >
               </div>
               <div class="space-y-3">
-                <div class="flex justify-between items-center pb-3 border-b border-border">
+                <div
+                  class="flex justify-between items-center pb-3 border-b border-border"
+                >
                   <span class="font-tech text-foreground">Mon - Fri</span>
-                  <span class="font-heading italic text-foreground">7AM - 6PM</span>
+                  <span class="font-heading italic text-foreground"
+                    >7AM - 6PM</span
+                  >
                 </div>
-                <div class="flex justify-between items-center pb-3 border-b border-border">
+                <div
+                  class="flex justify-between items-center pb-3 border-b border-border"
+                >
                   <span class="font-tech text-foreground">Saturday</span>
-                  <span class="font-heading italic text-foreground">8AM - 4PM</span>
+                  <span class="font-heading italic text-foreground"
+                    >8AM - 4PM</span
+                  >
                 </div>
                 <div class="flex justify-between items-center">
                   <span class="font-tech text-foreground">Sunday</span>
-                  <span class="font-heading italic text-muted">By Appt Only</span>
+                  <span class="font-heading italic text-muted"
+                    >By Appt Only</span
+                  >
                 </div>
               </div>
             </div>
 
             <!-- Referral Badge -->
-            <div class="bg-surface border-2 border-dashed border-brand-red/30 p-6 relative">
-              <div class="absolute -top-3 left-4 bg-brand-red text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest">
+            <div
+              class="bg-surface border-2 border-dashed border-brand-red/30 p-6 relative"
+            >
+              <div
+                class="absolute -top-3 left-4 bg-brand-red text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest"
+              >
                 Referral Bonus
               </div>
               <div class="space-y-3 mt-2">
-                <div class="flex justify-between items-center border-b border-border pb-3">
-                  <span class="font-heading italic text-foreground">Per Job</span>
+                <div
+                  class="flex justify-between items-center border-b border-border pb-3"
+                >
+                  <span class="font-heading italic text-foreground"
+                    >Per Job</span
+                  >
                   <span class="font-bold text-brand-red text-xl">$100</span>
                 </div>
                 <div class="flex justify-between items-center">
-                  <span class="font-heading italic text-foreground">Jobs $10k+</span>
+                  <span class="font-heading italic text-foreground"
+                    >Jobs $10k+</span
+                  >
                   <span class="font-bold text-brand-red text-xl">$150</span>
                 </div>
               </div>
               <p class="text-xs font-tech text-muted mt-4 leading-relaxed">
-                Know a fire station or business that needs an upgrade? Send them our way
-                and earn a referral bonus when the project completes.
+                Know a fire station or business that needs an upgrade? Send them
+                our way and earn a referral bonus when the project completes.
               </p>
             </div>
           </div>
 
           <!-- Right Column: Form -->
           <div class="lg:col-span-2">
-            <div class="bg-surface border border-border p-8 md:p-12 relative overflow-hidden">
+            <div
+              class="bg-surface border border-border p-8 md:p-12 relative overflow-hidden"
+            >
               <!-- Top Accent -->
               <div class="absolute top-0 left-0 w-full h-2 bg-brand-blue"></div>
 
-              <div class="flex items-center gap-2 text-brand-red font-tech font-bold mb-4 uppercase tracking-widest text-sm">
+              <div
+                class="flex items-center gap-2 text-brand-red font-tech font-bold mb-4 uppercase tracking-widest text-sm"
+              >
                 <MessageSquare class="w-4 h-4" />
                 <span>Project Inquiry</span>
               </div>
-              <h2 class="text-4xl font-heading italic uppercase text-foreground mb-2">
+              <h2
+                class="text-4xl font-heading italic uppercase text-foreground mb-2"
+              >
                 Tell Us About Your Project
               </h2>
               <p class="font-tech text-muted mb-10">
-                Fill out the form below and we'll get back to you within 24 hours with a detailed quote.
+                Fill out the form below and we'll get back to you within 24
+                hours with a detailed quote.
               </p>
 
               <form class="space-y-8" id="contact-form">
                 <!-- Name & Contact Row -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div class="group">
-                    <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                    <label
+                      class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                    >
                       Your Name <span class="text-brand-red">*</span>
                     </label>
                     <input
@@ -179,7 +230,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                     />
                   </div>
                   <div class="group">
-                    <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                    <label
+                      class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                    >
                       Phone Number <span class="text-brand-red">*</span>
                     </label>
                     <input
@@ -195,7 +248,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                 <!-- Email & Location Row -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div class="group">
-                    <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                    <label
+                      class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                    >
                       Email Address
                     </label>
                     <input
@@ -206,7 +261,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                     />
                   </div>
                   <div class="group">
-                    <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                    <label
+                      class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                    >
                       City / Location
                     </label>
                     <input
@@ -221,7 +278,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                 <!-- Service & Project Type Row -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div class="group">
-                    <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                    <label
+                      class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                    >
                       Service Needed <span class="text-brand-red">*</span>
                     </label>
                     <select
@@ -230,8 +289,12 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                       class="w-full bg-background border-2 border-border p-4 font-tech focus:outline-none focus:border-brand-blue focus:bg-surface transition-all text-muted cursor-pointer"
                     >
                       <option value="">Select Service...</option>
-                      <option value="epoxy-residential">Epoxy Flooring (Garage/Residential)</option>
-                      <option value="epoxy-commercial">Epoxy Flooring (Commercial/Industrial)</option>
+                      <option value="epoxy-residential"
+                        >Epoxy Flooring (Garage/Residential)</option
+                      >
+                      <option value="epoxy-commercial"
+                        >Epoxy Flooring (Commercial/Industrial)</option
+                      >
                       <option value="polishing">Concrete Polishing</option>
                       <option value="staining">Staining & Sealing</option>
                       <option value="repair">Crack Repair</option>
@@ -239,7 +302,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                     </select>
                   </div>
                   <div class="group">
-                    <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                    <label
+                      class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                    >
                       Project Type
                     </label>
                     <select
@@ -256,7 +321,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
 
                 <!-- Square Footage -->
                 <div class="group">
-                  <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                  <label
+                    class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                  >
                     Approximate Square Footage
                   </label>
                   <input
@@ -269,7 +336,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
 
                 <!-- Details -->
                 <div class="group">
-                  <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                  <label
+                    class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                  >
                     Project Details
                   </label>
                   <textarea
@@ -282,7 +351,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
 
                 <!-- How did you hear about us -->
                 <div class="group">
-                  <label class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3">
+                  <label
+                    class="block font-tech text-xs font-bold text-foreground uppercase tracking-widest mb-3"
+                  >
                     How Did You Hear About Us?
                   </label>
                   <select
@@ -306,7 +377,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
                   >
                     <span class="transform skew-x-12 flex items-center gap-3">
                       Submit Request
-                      <Send class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <Send
+                        class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                      />
                     </span>
                   </button>
                 </div>
@@ -321,63 +394,104 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
     <section class="py-24 bg-brand-black text-white relative overflow-hidden">
       <!-- Background Pattern -->
       <div class="absolute inset-0">
-        <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
-        <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/10 via-transparent to-brand-red/10"></div>
+        <div
+          class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"
+        >
+        </div>
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-brand-blue/10 via-transparent to-brand-red/10"
+        >
+        </div>
       </div>
 
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
-          <span class="font-tech text-brand-blue font-bold uppercase tracking-[0.3em] text-sm">Our Promise</span>
-          <h2 class="font-heading text-5xl md:text-7xl italic uppercase mt-4 leading-[0.9]">
-            The Standard.<br/>
+          <span
+            class="font-tech text-brand-blue font-bold uppercase tracking-[0.3em] text-sm"
+            >Our Promise</span
+          >
+          <h2
+            class="font-heading text-5xl md:text-7xl italic uppercase mt-4 leading-[0.9]"
+          >
+            The Standard.<br />
             <span class="text-brand-red">Bar None.</span>
           </h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <!-- Quality -->
-          <div class="text-center p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-blue/20 flex items-center justify-center transform -skew-x-6">
+          <div
+            class="text-center p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-6 bg-brand-blue/20 flex items-center justify-center transform -skew-x-6"
+            >
               <Award class="w-8 h-8 text-brand-blue transform skew-x-6" />
             </div>
-            <h3 class="font-heading text-2xl italic uppercase mb-3">Quality First</h3>
+            <h3 class="font-heading text-2xl italic uppercase mb-3">
+              Quality First
+            </h3>
             <p class="font-tech text-white/60 text-sm leading-relaxed">
-              We use only premium materials and proven techniques. No shortcuts, no compromises.
+              We use only premium materials and proven techniques. No shortcuts,
+              no compromises.
             </p>
           </div>
 
           <!-- Veteran Values -->
-          <div class="text-center p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-red/20 flex items-center justify-center transform -skew-x-6">
+          <div
+            class="text-center p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-6 bg-brand-red/20 flex items-center justify-center transform -skew-x-6"
+            >
               <Crosshair class="w-8 h-8 text-brand-red transform skew-x-6" />
             </div>
-            <h3 class="font-heading text-2xl italic uppercase mb-3">Veteran Values</h3>
+            <h3 class="font-heading text-2xl italic uppercase mb-3">
+              Veteran Values
+            </h3>
             <p class="font-tech text-white/60 text-sm leading-relaxed">
-              Integrity, precision, and accountability. We treat every project like it's our own.
+              Integrity, precision, and accountability. We treat every project
+              like it's our own.
             </p>
           </div>
 
           <!-- Results -->
-          <div class="text-center p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
-            <div class="w-16 h-16 mx-auto mb-6 bg-brand-blue/20 flex items-center justify-center transform -skew-x-6">
+          <div
+            class="text-center p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-6 bg-brand-blue/20 flex items-center justify-center transform -skew-x-6"
+            >
               <ArrowRight class="w-8 h-8 text-brand-blue transform skew-x-6" />
             </div>
-            <h3 class="font-heading text-2xl italic uppercase mb-3">Proven Results</h3>
+            <h3 class="font-heading text-2xl italic uppercase mb-3">
+              Proven Results
+            </h3>
             <p class="font-tech text-white/60 text-sm leading-relaxed">
-              Hundreds of satisfied customers across Texas, Oklahoma, and Arkansas.
+              Hundreds of satisfied customers across Texas, Oklahoma, and
+              Arkansas.
             </p>
           </div>
         </div>
 
         <!-- Bottom CTA Row -->
-        <div class="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-white/10">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-white/10"
+        >
           <div class="flex items-center gap-4">
-            <div class="w-14 h-14 bg-brand-red flex items-center justify-center transform -skew-x-6">
+            <div
+              class="w-14 h-14 bg-brand-red flex items-center justify-center transform -skew-x-6"
+            >
               <Award class="w-7 h-7 text-white transform skew-x-6" />
             </div>
             <div>
-              <span class="font-heading text-xl italic block">Veteran Owned</span>
-              <span class="font-tech text-white/50 text-xs uppercase tracking-widest">& Operated</span>
+              <span class="font-heading text-xl italic block"
+                >Veteran Owned</span
+              >
+              <span
+                class="font-tech text-white/50 text-xs uppercase tracking-widest"
+                >& Operated</span
+              >
             </div>
           </div>
 
@@ -388,8 +502,13 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
             <div class="transform skew-x-6 flex items-center gap-4">
               <Phone class="w-6 h-6 text-white" />
               <div>
-                <span class="font-tech text-white/70 text-xs uppercase tracking-widest block">Call Now</span>
-                <span class="font-heading text-2xl italic text-white">(972) 900-1009</span>
+                <span
+                  class="font-tech text-white/70 text-xs uppercase tracking-widest block"
+                  >Call Now</span
+                >
+                <span class="font-heading text-2xl italic text-white"
+                  >(972) 900-1009</span
+                >
               </div>
             </div>
           </a>
@@ -401,12 +520,12 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
 </Layout>
 
 <script is:inline>
-  const RECAPTCHA_SITE_KEY = '6Le9SD4sAAAAAMVbV3GukJA_MVYdE4W0LSEkLpjY';
-  const form = document.getElementById('contact-form');
+  const RECAPTCHA_SITE_KEY = "6LcUXUYsAAAAAHqOUaJlnwoXewtxwA64YuLqXimm";
+  const form = document.getElementById("contact-form");
   const submitBtn = form?.querySelector('button[type="submit"]');
   const originalBtnContent = submitBtn?.innerHTML;
 
-  form?.addEventListener('submit', async (e) => {
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     // Show loading state
@@ -429,7 +548,9 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
       const token = await new Promise((resolve, reject) => {
         grecaptcha.ready(async () => {
           try {
-            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'CONTACT_PAGE_FORM' });
+            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, {
+              action: "CONTACT_PAGE_FORM",
+            });
             resolve(token);
           } catch (err) {
             reject(err);
@@ -437,14 +558,14 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
         });
       });
 
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ data, recaptchaToken: token }),
       });
 
       if (!response.ok) {
-        throw new Error('Submission failed');
+        throw new Error("Submission failed");
       }
 
       // Show success message
@@ -470,9 +591,11 @@ import heroBg from "../assets/photos/571114222_122218302566109155_56359642584919
       submitBtn.innerHTML = originalBtnContent;
 
       // Show error message above button
-      const errorDiv = document.createElement('div');
-      errorDiv.className = 'bg-red-500/10 border border-red-500/30 p-4 text-red-400 font-tech text-sm mb-4';
-      errorDiv.textContent = 'Something went wrong. Please call us directly at (972) 900-1009.';
+      const errorDiv = document.createElement("div");
+      errorDiv.className =
+        "bg-red-500/10 border border-red-500/30 p-4 text-red-400 font-tech text-sm mb-4";
+      errorDiv.textContent =
+        "Something went wrong. Please call us directly at (972) 900-1009.";
       submitBtn.parentElement?.insertBefore(errorDiv, submitBtn);
     }
   });

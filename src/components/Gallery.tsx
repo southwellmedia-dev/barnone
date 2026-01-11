@@ -4,7 +4,7 @@ import { SectionTitle } from "./ui/SectionTitle";
 import { GridBackground } from "./ui/GridBackground";
 import p_recent1 from "../assets/photos/579341934_122220866402109155_8017844784342174459_n.jpg?url";
 import p_recent2 from "../assets/photos/578987078_122220866264109155_7016178176580204580_n.jpg?url";
-import p_recent3 from "../assets/photos/577035156_122220114074109155_3876540980542674317_n.jpg?url";
+import p_recent3 from "../assets/services/firehouse-quinlan.webp?url";
 
 export const Gallery = () => {
   const projects = [
@@ -22,7 +22,7 @@ export const Gallery = () => {
     },
     {
       title: "Fire Station Bay",
-      location: "Elmo, TX",
+      location: "Quinlan, TX",
       img: p_recent3,
       tag: "Public Works",
     },
